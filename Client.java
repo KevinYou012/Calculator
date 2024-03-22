@@ -14,15 +14,19 @@ public class Client {
 		calculator.push('-',  new BigDecimal(10));
 		calculator.compute();
 
-		//case2: 100 + 50 * 20 / 2 - 10 = 590; => //100 + 50 * 20 = 1100
+		//case2: 100 + 50 * 20 / 2 - 10 = 590; => //100 + 50 * 20 = 1100 // undo redo
 		calculator.undo();
 		calculator.undo();
 		calculator.redo();
 
-		//case3:
+		//case3: 除数为0
 		calculator.init();
 		calculator.push('+',  new BigDecimal(100));
 		calculator.push('/',  new BigDecimal(0));
+		calculator.compute();
+
+		//case4: 超大数计算
+		todo
 
 	}
 }
