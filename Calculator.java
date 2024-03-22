@@ -49,6 +49,8 @@ public class Calculator {
 		while (!caculateStack.isEmpty()) {
 			total = total.add(caculateStack.pop());
 		}
+
+		//辅助日志，便于查看
 		StringBuilder log = new StringBuilder();
 		log.append("0");
 		commands.forEach(it-> log.append(" ").append(it.getOperator()).append(" ").append(it.getOperand()));
