@@ -21,29 +21,29 @@ public class Calculator {
 		caculateStack.push(new BigDecimal(0));
 		// 100 + 50 * 20 / 2 - 10 = 590
 
-        for (CalculatorCommand command : commands) {
-            switch (command.getOperator()) {
-				case '+':
-					caculateStack.push(command.getOperand());
-					break;
-				case '-':
-					caculateStack.push(command.getOperand().negate());
-					break;
-				case '*':
-					BigDecimal multiplyRet = caculateStack.pop().multiply(command.getOperand());
-					caculateStack.push(multiplyRet);
-					break;
-				case '/':
-					if (command.getOperand().equals(new BigDecimal(0))) {
-						System.out.println("系统异常: 除数不能为0");
-						System.exit(-1);
-					}
-
-                    BigDecimal divideRet = caculateStack.pop().divide(command.getOperand());
-                    caculateStack.push(divideRet);
-                    break;
-            }
-        }
+	        for (CalculatorCommand command : commands) {
+	            switch (command.getOperator()) {
+			case '+':
+				caculateStack.push(command.getOperand());
+				break;
+			case '-':
+				caculateStack.push(command.getOperand().negate());
+				break;
+			case '*':
+				BigDecimal multiplyRet = caculateStack.pop().multiply(command.getOperand());
+				caculateStack.push(multiplyRet);
+				break;
+			case '/':
+				if (command.getOperand().equals(new BigDecimal(0))) {
+					System.out.println("系统异常: 除数不能为0");
+					System.exit(-1);
+				}
+				BigDecimal divideRet = caculateStack.pop().divide(command.getOperand());
+	                    	caculateStack.push(divideRet);
+	                    	break;
+		    	default:break;
+	            }	
+	        }
 
 		BigDecimal total = new BigDecimal(0);
 		while (!caculateStack.isEmpty()) {
@@ -95,7 +95,7 @@ public class Calculator {
 
 
 	/**
-	 * 计算机命令
+	 * 计算命令
 	 */
 	public static class CalculatorCommand  {
 
